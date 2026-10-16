@@ -1,86 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080910">
-<title>A Universe for You</title>
+<title>كون لموسى ♡</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:#fff4e8;text-align:center;font-family:Georgia,serif;background:radial-gradient(ellipse at top,#29213d,#10101c 48%,#05060b);overflow-x:hidden}
+body{margin:0;min-height:100vh;color:#fff4e8;text-align:center;font-family:Tahoma,Arial,sans-serif;background:radial-gradient(ellipse at top,#29213d,#10101c 48%,#05060b);overflow-x:hidden}
 #stars{position:fixed;inset:0;pointer-events:none}
 .star{position:absolute;color:white;animation:twinkle 3s infinite alternate}
 @keyframes twinkle{from{opacity:.2}to{opacity:1}}
 main{position:relative;max-width:600px;margin:auto;padding:35px 22px 65px}
-.small{font:10px Arial;letter-spacing:4px;color:#e9d4a1}
+.small{font:10px Tahoma,Arial,sans-serif;letter-spacing:2px;color:#e9d4a1;line-height:2}
 .moon{font-size:65px;margin:24px}
-h1{font-size:clamp(36px,10vw,58px);font-weight:normal;line-height:1.12}
-h1 em{color:#e9c0d7}
-p{line-height:1.9;color:#d2cede}
+h1{font-size:clamp(32px,9vw,48px);font-weight:normal;line-height:1.7}
+h1 em{color:#e9c0d7;font-style:normal}
+p{line-height:2;color:#d2cede}
 .envelope{position:relative;width:260px;height:165px;max-width:90%;margin:50px auto 20px;background:#403149;border-radius:4px;cursor:pointer;box-shadow:0 15px 45px #0008;transition:transform .5s}
 .envelope:before{content:"";position:absolute;inset:0;background:#594260;clip-path:polygon(0 0,100% 0,50% 65%);transition:transform .6s}
 .envelope.open:before{transform:rotateX(180deg);opacity:.4}
 .seal{position:absolute;top:60px;left:calc(50% - 20px);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#e9d4a1;color:#30223a;z-index:2;transition:opacity .3s}
 .envelope.open .seal{opacity:0}
-.hint{font:11px Arial;letter-spacing:2px;color:#aaa5bd}
-.letter{display:none;text-align:left;padding:27px;margin:35px auto;background:#f6ead8;color:#302536;border-radius:4px;box-shadow:0 15px 50px #0008}
+.hint{font-size:12px;color:#c1b6d0;line-height:2}
+.letter{display:none;text-align:right;padding:27px 22px;margin:35px auto;background:#f6ead8;color:#302536;border-radius:4px;box-shadow:0 15px 50px #0008;overflow-wrap:break-word}
 .letter.show{display:block;animation:appear .8s}
 .letter p{color:#49394c}
-.letter h2{font-weight:normal;font-size:30px}
+.letter h2{font-weight:normal;font-size:25px;line-height:1.8}
+.letter .small{color:#806486}
+.poem{font-size:16px;line-height:2.2;margin:20px 0}
+.poem p{margin:0 0 22px}
 @keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-button{border:1px solid #d8c18e;border-radius:30px;padding:14px 18px;background:#e9d4a1;color:#211a2b;cursor:pointer;margin:7px;font-size:13px}
-.dark{background:transparent;color:#fff0dd;border-color:#82758e}
-#secret{display:none;border:1px solid #bca67b;padding:20px;margin-top:22px}
+button{border:1px solid #d8c18e;border-radius:30px;padding:14px 18px;background:#e9d4a1;color:#211a2b;cursor:pointer;margin:7px;font-size:13px;font-family:Tahoma,Arial,sans-serif}
+.dark{background:transparent;color:#49394c;border-color:#82758e}
+#secret{display:none;border:1px solid #bca67b;padding:20px;margin-top:22px;text-align:center}
 #secret.show{display:block;animation:appear .8s}
-footer{margin-top:55px;color:#77748c;font:10px Arial;letter-spacing:3px}
+#secret p{color:#49394c}
+#musicArea{display:none;margin-top:20px;padding:15px;border:1px solid #bca67b;text-align:center}
+#musicArea.show{display:block}
+footer{margin-top:55px;color:#aaa0bb;font:11px Tahoma,Arial,sans-serif;line-height:2}
+@media(max-width:380px){main{padding:28px 15px 50px}.letter{padding:23px 17px}.poem{font-size:15px}}
 </style>
 </head>
 <body>
 <div id="stars"></div>
 <main>
- <div class="small">A MESSAGE FROM THE UNIVERSE</div>
+ <div class="small">رِسَالَةٌ مِنَ الكَوْنِ إِلَيْكَ ♡</div>
  <div class="moon">☾</div>
- <h1>Tonight, the stars<br>are celebrating <em>you.</em></h1>
- <p>Some people make this world feel magical.<br>This little universe was made for one of them.</p>
+ <h1>الليلة،<br>النجوم تحتفل <em>بك.</em></h1>
+ <p>هناك أشخاص يجعلون هذا العالم أكثر سحرًا.<br>وهذا الكون الصغير صُنع لشخصٍ واحد منهم.</p>
 
- <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open your birthday letter">
+ <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="افتح رسالة عيد ميلادك">
    <div class="seal">✦</div>
  </div>
- <div class="hint" id="hint">TAP THE ENVELOPE TO OPEN YOUR GIFT</div>
+ <div class="hint" id="hint">اضغط على الظرف لفتح هديتك ♡</div>
 
  <section class="letter" id="letter">
-   <div class="small">A LITTLE NOTE FOR YOUR SPECIAL DAY</div>
-   <h2>Happy Birthday, <span id="name">My Favorite Person</span> ✨</h2>
-   <p>Dear <span id="dear">you</span>,</p>
-   <p>If I could gather every beautiful star in the sky, I would still need more light to explain how much happiness you deserve.</p>
-   <p>I hope this new chapter brings you peaceful days, brave dreams, unexpected magic, and a thousand reasons to smile.</p>
-   <p>And whenever the world feels too big, remember: somewhere in this endless universe, someone is celebrating the fact that you exist.</p>
-   <p><i>With a little stardust, always. ♡</i></p>
-   <button id="secretBtn">Unlock one last secret ✦</button>
-   <button class="dark" id="musicBtn">♫ Play music</button>
-   <div id="secret">
-     <h2>One wish, just for you. 🌙</h2>
-     <p>Close your eyes and make a wish. May this year bring you the happiness you have been quietly hoping for.</p>
-     <p>You are rare. You are loved. Your story is still unfolding. ♡</p>
+   <div class="small">كلمات صغيرة ليومك المميز</div>
+   <h2>إلى عزيزي الوسيم موسى ♡</h2>
+
+   <div class="poem">
+    <p>ابتدي في اسمك وانتهي في تفاصيلك<br>
+    و كُل نصوصي تُحاول لمسك</p>
+
+    <p>الى عزيزي الوسيم موسى ♡<br>
+    لو استطعت جمع كل النجوم الجميله مثلك في السماء لظللت بحاجه الى المزيد منهم لاشرح لك مقدار حبي لك والسعاده التي تستحقها ي مزيوني<br>
+    اتمنى لعسولي سنه حلوه عليه …سنه وفصل جديد واياماً واحلاماً هادئه وسعيده وساحره مثل عيونك ي كوني الامنتهي انت .. ♡</p>
+
+    <p>انت كوني الذي لا ينتهي ♡<br>
+    احب فيك م أعرفه ، وما لم اكتشفه بعد<br>
+    احب التفاصيل التي حفظتها عنك، والتفاصيل التي ستفاجئني بها الايام . ولو عشت معك الف حكايه لبقي في قلبي متسع لحكايه اخرك معك ، وكأنك كتاب لا تنتهي صفحاته، وكل صفحه فيه تجعلني ارغب بالمزيد</p>
+
+    <p>اهخخ لو كان لي ان اختار كونا اضيع فيه الى الابد لاخترت الكون الذي يبدأ بك …وينتهي فيك …ثم يبدأ بك من جديد</p>
+
+    <p>وفي يوم ميلاد حبيبي ال20 اتمنى ان تبتسم لك الحياه بالطريقه التي تليق بعيونك وان تجد في ايامك القادمه م يجعلك ممتناً لانك وصلت إليها .. اتمنى ان تحقق امنياتك التي شاركتني اياها واخفيتها عن الجميع وان يحمل لك العمر من اللطف بقدر م يحمل قلبك الاشياء الجميله</p>
+
+    <p>وكل عام وانا اجد فيك شيئا جديدا يجعلني اكتب عنك مره اخرى ♡</p>
+
+    <p>واذا شعرت ان العالم كبير .. تذكر في مكان ما و في هاذا الكون الابدي والامنتهي هناك من يحتفل بوجودك ..</p>
+
+    <p>مع الكثير من قبلاتي دائماً ♡</p>
    </div>
-   <p id="musicStatus" style="font-size:12px">Music starts when you press play.</p>
+
+   <div style="text-align:center">
+    <button id="secretBtn">افتح سرّي الأخير ✦</button>
+    <button class="dark" id="musicBtn">♫ الموسيقى</button>
+   </div>
+
+   <div id="secret">
+    <h2>سر صغير لك وحدك 🌙</h2>
+    <p>ابتسم يا موسى، وتمنَّ أمنية من قلبك.</p>
+    <p>أتمنى أن تبتسم لك الحياة بالطريقة التي تليق بك، وأن تتحقق أمنياتك التي أخبرتنا بها وتلك التي احتفظت بها لنفسك.</p>
+    <p>ولو شعرت يومًا أن العالم كبير، تذكّر أن هناك قلبًا يحتفل بوجودك، وبكل تفصيلة صغيرة تجعلك أنت. ♡</p>
+    <p>أحبك يا مزيوني ♡</p>
+   </div>
+
+   <div id="musicArea">
+    <p>أغنيتنا يا موسى ♡</p>
+    <p>بنضيف أغنيتك هنا بعد رفع ملف MP3 إلى الموقع.</p>
+   </div>
+   <p id="musicStatus" style="font-size:12px;text-align:center">مفاجأة موسيقية تنتظرك ♡</p>
  </section>
- <footer>MADE OF STARDUST · MADE FOR YOU</footer>
+
+ <footer>صُنِعَ مِنَ النُّجُوم · وصُنِعَ لَكَ أَنْتَ ♡</footer>
 </main>
 
 <script>
-// CHANGE THIS NAME:
-const PERSON_NAME = "My lovely bby MOUSA";
-document.getElementById("name").textContent = PERSON_NAME;
-document.getElementById("dear").textContent =
-  PERSON_NAME === "My Favorite Person" ? "you" : PERSON_NAME;
-document.title = "A Birthday Universe for " + PERSON_NAME;
-
-// Twinkling stars
-const stars = document.getElementById("stars");
+const stars=document.getElementById("stars");
 for(let i=0;i<100;i++){
  const s=document.createElement("span");
- s.className="star";s.textContent="✦";
+ s.className="star";
+ s.textContent="✦";
  s.style.left=Math.random()*100+"%";
  s.style.top=Math.random()*100+"%";
  s.style.fontSize=(5+Math.random()*8)+"px";
@@ -88,12 +118,11 @@ for(let i=0;i<100;i++){
  stars.appendChild(s);
 }
 
-// Open the envelope
 function openLetter(){
  const env=document.getElementById("envelope");
  if(env.classList.contains("open"))return;
  env.classList.add("open");
- document.getElementById("hint").textContent="YOUR LETTER IS WAITING BELOW";
+ document.getElementById("hint").textContent="رسالتك تنتظرك بالأسفل ♡";
  setTimeout(()=>{
   document.getElementById("letter").classList.add("show");
   document.getElementById("letter").scrollIntoView({behavior:"smooth"});
@@ -101,45 +130,26 @@ function openLetter(){
 }
 document.getElementById("envelope").addEventListener("click",openLetter);
 document.getElementById("envelope").addEventListener("keydown",e=>{
- if(e.key==="Enter"||e.key===" "){e.preventDefault();openLetter();}
+ if(e.key==="Enter"||e.key===" "){
+  e.preventDefault();
+  openLetter();
+ }
 });
 
-// Surprise button
 document.getElementById("secretBtn").addEventListener("click",()=>{
  const s=document.getElementById("secret");
  s.classList.toggle("show");
  document.getElementById("secretBtn").textContent=
- s.classList.contains("show")?"A secret worth keeping ♡":"Unlock one last secret ✦";
+ s.classList.contains("show")?"احتفظ بهذا السر في قلبك ♡":"افتح سرّي الأخير ✦";
 });
 
-// Simple original ambient tones, generated by the browser
-let ctx=null,timer=null,on=false,index=0;
-const notes=[261.63,329.63,392,493.88,392,329.63,293.66,349.23];
-function tone(){
- if(!on||!ctx)return;
- const osc=ctx.createOscillator(),gain=ctx.createGain();
- osc.type="sine";osc.frequency.value=notes[index++%notes.length];
- gain.gain.setValueAtTime(.0001,ctx.currentTime);
- gain.gain.exponentialRampToValueAtTime(.045,ctx.currentTime+.08);
- gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.3);
- osc.connect(gain);gain.connect(ctx.destination);
- osc.start();osc.stop(ctx.currentTime+1.35);
-}
-document.getElementById("musicBtn").addEventListener("click",async()=>{
- const btn=document.getElementById("musicBtn");
- const status=document.getElementById("musicStatus");
- if(!on){
-  const AC=window.AudioContext||window.webkitAudioContext;
-  if(!AC){status.textContent="Music is not supported by this browser.";return;}
-  ctx=ctx||new AC();
-  if(ctx.state==="suspended")await ctx.resume();
-  on=true;tone();timer=setInterval(tone,850);
-  btn.textContent="♫ Turn music off";
-  status.textContent="Soft ambient tones are playing.";
- }else{
-  on=false;clearInterval(timer);
-  btn.textContent="♫ Play music";
-  status.textContent="Music is paused.";
+document.getElementById("musicBtn").addEventListener("click",()=>{
+ const area=document.getElementById("musicArea");
+ area.classList.toggle("show");
+ document.getElementById("musicBtn").textContent=
+ area.classList.contains("show")?"إخفاء الأغنية ♡":"♫ الموسيقى";
+ if(area.classList.contains("show")){
+  area.scrollIntoView({behavior:"smooth",block:"center"});
  }
 });
 </script>
