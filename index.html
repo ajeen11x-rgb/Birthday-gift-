@@ -50,9 +50,9 @@ footer{margin-top:55px;color:#aaa0bb;font:11px Tahoma,Arial,sans-serif;line-heig
  <div class="small">من قلبي الصغير لكوني الكبير ♡</div>
  <div class="moon">☾</div>
  <h1>كل هالنجوم،<br>ما تنوّر <em>كثر عيونك.</em></h1>
- <p>فيه شخص بالدنيا يستاهل كل الأشياء الحلوة،<br>وهالليلة بكل نجومها وسماها صارت عشانه. ♡</p>
+ <p>فيه شخص بالدنيا يستاهل كل الأشياء الحلوة،<br>وهالليلة بكل نجومها وسماها موجوده عشانه. ♡</p>
 
- <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="افتح هديتك يا موسى">
+ <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="افتح هديتك يا بيبي">
    <div class="seal">✦</div>
  </div>
  <div class="hint" id="hint">تعال يا مزيوني، هذي لك.. افتحها ♡</div>
@@ -86,26 +86,26 @@ footer{margin-top:55px;color:#aaa0bb;font:11px Tahoma,Arial,sans-serif;line-heig
 
    <div style="text-align:center">
     <button id="secretBtn">فيه شيء ثاني لك.. ✦</button>
-    <button class="dark" id="musicBtn">أغنيتنا ♫</button>
+    <button class="dark" id="musicBtn">اغنيه لعسولي ♫</button>
    </div>
 
    <div id="secret">
-    <h2>تعال أقول لك سرّي.. 🌙</h2>
-    <p>يا موسى، لو بيدي أخلي الدنيا كلها تفرحك، ما تأخرت عليك لحظة. ♡</p>
-    <p>أتمنى لك من قلبي أيام حلوة، وأمنيات تتحقق وحدة ورا الثانية، وضحكة ما تفارق وجهك أبد.</p>
-    <p>وإذا نسيت يوم قد إيش أنت غالي، تذكّر إن فيه قلب يفرح فيك، ويدعي لك، ويحب وجودك بهالدنيا أكثر مما تتخيّل. ♡</p>
+    <h2>تعال أقول لك سر.. 🌙</h2>
+    <p>عسولي، لو بيدي اخلي الدنيا كلها تفرحك، ما تأخرتعليك لحظة. ♡</p>
+    <p>ابيك تتمنى امنيه و انا بتمنى لك من كل قلبي ايام حلوة، وامنيات تتحقق وحدة ورا الثانية، وضحكه عسولي ما تفارقه أبد.</p>
+    <p>وإذا نسيت يوم قد ايش انت غالي علي، تذكّر إن قلبي يفرح فيك، ويدعي لك، ويحب وجودك بهالدنيا أكثر مما تتخيّل. ♡</p>
     <p>كل عام وأنت حبيبي، وكل عام وأنت كوني اللي ما أبي له نهاية. ♡</p>
    </div>
 
    <div id="musicArea">
-    <p>هذي أغنيتنا يا مزيوني ♡</p>
+    <p>هذي أغنيتك يا مزيوني ♡</p>
     <p>خلّها تشتغل، وخذ هاللحظة لك.. ولي. 🌙</p>
-    <audio id="song" controls preload="none">
+    <audio id="song" controls preload="auto" playsinline>
       <source src="flawed%20mangoes%20-%20killswitch%20lullaby.mp3" type="audio/mpeg">
       متصفحك ما قدر يشغّل الأغنية.
     </audio>
    </div>
-   <p id="musicStatus" style="font-size:12px;text-align:center">لك وحدك، يا أحلى تفاصيل عمري ♡</p>
+   <p id="musicStatus" style="font-size:12px;text-align:center">لك وحدك، يا احلى م خلق ربي ♡</p>
  </section>
 
  <footer>من قلبي لقلبك · وكل النجوم تشهد ♡</footer>
@@ -146,20 +146,59 @@ document.getElementById("secretBtn").addEventListener("click",()=>{
  const s=document.getElementById("secret");
  s.classList.toggle("show");
  document.getElementById("secretBtn").textContent=
- s.classList.contains("show")?"هذا السر خله بقلبك يا موسى ♡":"فيه شيء ثاني لك.. ✦";
+ s.classList.contains("show")?"هذا السر خله بقلبك يا بيبي ♡":"فيه شيء ثاني لك.. ✦";
 });
 
-document.getElementById("musicBtn").addEventListener("click",()=>{
- const area=document.getElementById("musicArea");
- const song=document.getElementById("song");
- area.classList.toggle("show");
- document.getElementById("musicBtn").textContent=
- area.classList.contains("show")?"خبّينا الأغنية شوي ♡":"أغنيتنا ♫";
- if(area.classList.contains("show")){
-  area.scrollIntoView({behavior:"smooth",block:"center"});
+const musicBtn=document.getElementById("musicBtn");
+const musicArea=document.getElementById("musicArea");
+const song=document.getElementById("song");
+const musicStatus=document.getElementById("musicStatus");
+
+musicBtn.addEventListener("click",async()=>{
+ if(!musicArea.classList.contains("show")){
+  musicArea.classList.add("show");
+  musicBtn.textContent="إيقاف الأغنية ♡";
+  musicArea.scrollIntoView({behavior:"smooth",block:"center"});
+
+  try{
+   await song.play();
+   musicStatus.textContent="هذي أغنيتك يا مزيوني ♡";
+  }catch(error){
+   musicStatus.textContent="إذا ما اشتغلت تلقائيًا، جرّب زر التشغيل داخل مشغّل الأغنية ♡";
+   musicBtn.textContent="تشغيل اغنيتك ♫";
+  }
  }else{
-  song.pause();
+  if(song.paused){
+   try{
+    await song.play();
+    musicBtn.textContent="إيقاف الأغنية ♡";
+    musicStatus.textContent="هذي أغنيتك يا مزيوني ♡";
+   }catch(error){
+    musicStatus.textContent="تعذّر تشغيل الأغنية. تأكد من اتصال الإنترنت وملف الصوت ♡";
+   }
+  }else{
+   song.pause();
+   musicBtn.textContent="تشغيل اغنيتك ♫";
+  }
  }
+});
+
+song.addEventListener("ended",()=>{
+ musicBtn.textContent="اغنيتك ♫";
+});
+
+song.addEventListener("play",()=>{
+ musicBtn.textContent="إيقاف الأغنية ♡";
+});
+
+song.addEventListener("pause",()=>{
+ if(!song.ended && musicArea.classList.contains("show")){
+  musicBtn.textContent="تشغيل اغنيتك ♫";
+ }
+});
+
+song.addEventListener("error",()=>{
+ musicStatus.textContent="ما قدرنا نوصل للأغنية. تأكدي من اسم ملف الصوت في GitHub ♡";
 });
 </script>
 </body>
